@@ -12,7 +12,7 @@ import java.util.Map;
  * В мапе индекс называется ключом. Индекс - применяется там, где нет пропусков, а ключ - там где они есть.
  * В мапе как правило нет порядка
  * Мап - это отображение ключей на элементы
- *
+ * сделать элементами мапа объекты - фио, возраст, зарплата
  * */
 public class Main {
     public static void main(String[] args) {
@@ -21,8 +21,16 @@ public class Main {
         salaries.put("Ilya", 200000);
         salaries.put("Vasya", 100000);
         String name = "Julia";
-        Integer salary = salaries.get(name);
-        System.out.println(salary);
+        System.out.println(salaries.get(name));
+
+        Map<String, Person> persons = new HashMap<String, Person>();
+        Person julia = new Person("Julia", "Gordeeva", 35, 60000);
+        Person ilya = new Person("Ilya", "Sazonov", 35, 100000);
+        persons.put("Julia",julia);
+        persons.put("Ilya",ilya);
+        String name2 = null;
+        System.out.println(persons.get("Julia").getAge());
+        System.out.println(persons.containsKey("Petya"));
     }
 
 
