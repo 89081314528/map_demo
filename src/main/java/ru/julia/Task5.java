@@ -20,7 +20,7 @@ public class Task5 {
         System.out.println(numberOfString(strings).get("отдых"));
     }
 
-    public static Map<String, Integer> numberOfString(List<String> strings) {
+    public static Map numberOfString(List<String> strings) {
         Map<String, Integer> numberOfString = new HashMap<String, Integer>();
         for (int i = 0; i < strings.size(); ++i) {
             String key = strings.get(i);
