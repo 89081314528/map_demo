@@ -5,6 +5,8 @@ import java.util.Map;
 
 /**
  * текст - посчитать количество вхождений каждого слова. метод, который удаляет знаки препинания
+ * метод который принимает строку и возвращает лист со словами в этой строке
+ * метод который принимает лист строк и возвращает мапу с количеством вхождений этих строк
  */
 public class Task3 {
     public static void main(String[] args) {
@@ -21,7 +23,6 @@ public class Task3 {
                     if (numberOfWords.containsKey(key)) {
                         numberOfWords.put(key, (numberOfWords.get(key) + 1));
                         i = j;
-
                         break;
                     } else {
                         numberOfWords.put(key, 1);
@@ -34,7 +35,6 @@ public class Task3 {
                     if (numberOfWords.containsKey(key)) {
                         numberOfWords.put(key, (numberOfWords.get(key) + 1));
                         i = j;
-
                         break;
                     } else {
                         numberOfWords.put(key, 1);
