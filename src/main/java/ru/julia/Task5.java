@@ -6,31 +6,32 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * метод который принимает лист строк и возвращает мапу с количеством вхождений этих строк
+ * текст - посчитать количество слов (количество пробелов плюс один)
  */
 public class Task5 {
     public static void main(String[] args) {
-        List<String> strings = new ArrayList<>();
-        strings.add("прокрастинация");
-        strings.add("простоничегонеделание");
-        strings.add("отдых");
-        strings.add("нельзядоверятьпсихологам");
-        strings.add("прокрастинация");
-        System.out.println(numberOfString(strings).get("прокрастинация"));
-        System.out.println(numberOfString(strings).get("отдых"));
+        String str = "Я люблю свою родину вроде бы, я полжизни рабом на заводе был";
+        String newString = deletePunctuationMarks(str);
+        System.out.println(newString);
+        System.out.println(countWords(newString));
     }
-
-    public static Map numberOfString(List<String> strings) {
-        Map<String, Integer> numberOfString = new HashMap<String, Integer>();
-        for (int i = 0; i < strings.size(); ++i) {
-            String key = strings.get(i);
-            if (numberOfString.containsKey(key)) {
-                numberOfString.put(key, (numberOfString.get(key) + 1));
-            } else {
-                numberOfString.put(key, 1);
+    public static int countWords(String str) {
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.substring(i, i + 1).equals(" ")) {
+                count = count + 1;
             }
         }
-        return numberOfString;
+        return count + 1;
     }
-
+    public static String deletePunctuationMarks(String text) {
+        String newText = "";
+        for (int i = 0; i < text.length(); i++) {
+            if (text.substring(i, i + 1).equals(".") || text.substring(i, i + 1).equals(",")
+                    || text.substring(i, i + 1).equals("!")) {
+            } else
+                newText = newText + text.substring(i, i + 1);
+        }
+        return newText;
+    }
 }
