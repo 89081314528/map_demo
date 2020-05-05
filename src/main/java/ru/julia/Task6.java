@@ -1,0 +1,72 @@
+package ru.julia;
+
+import org.w3c.dom.ls.LSOutput;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * текст - посчитать количество вхождений каждого слова
+ * без использования вложенных циклов и используя методы из task4:
+ * метод который убирает знаки пунктуации
+ * метод который принимает строку и возвращает лист со словами в этой строке
+ * метод который принимает лист строк и возвращает мапу с количеством вхождений этих строк
+ */
+public class Task6 {
+    public static void main(String[] args) {
+        String text = "Я медленно становлюсь на колени и снимаю кофточку. Я все правильно сделала, " +
+                "больше меня не уволят?";
+        String newText = deletePunctuationMarks(text);
+        System.out.println(newText);
+        List<String> words = listOfWords(newText);
+        System.out.println(words);
+        System.out.println(numberOfString(words).get("Я"));
+    }
+
+    public static List<String> listOfWords(String newStr) {
+        List<String> words = new ArrayList<>();
+        String word = "";
+        int startOfWord = 0;
+        for (int i = 0; i < newStr.length(); i++) {
+            if (newStr.substring(i, i + 1).equals(" ")) {
+                word = newStr.substring(startOfWord, i);
+                System.out.println(word);
+                words.add(word);
+                startOfWord = i + 1;
+            } else if (i == (newStr.length() - 1)) {
+                word = newStr.substring(startOfWord, i + 1);
+                System.out.println(word);
+                words.add(word);
+                startOfWord = i + 1;
+            }
+        }
+        return words;
+    }
+
+    public static Map<String, Integer> numberOfString(List<String> strings) {
+        Map<String, Integer> numberOfString = new HashMap<String, Integer>();
+        for (int i = 0; i < strings.size(); ++i) {
+            String key = strings.get(i);
+            if (numberOfString.containsKey(key)) {
+                numberOfString.put(key, (numberOfString.get(key) + 1));
+            } else {
+                numberOfString.put(key, 1);
+            }
+        }
+        return numberOfString;
+    }
+
+    public static String deletePunctuationMarks(String text) {
+        String newText = "";
+        for (int i = 0; i < text.length(); i++) {
+            if (text.substring(i, i + 1).equals(".") || text.substring(i, i + 1).equals(",")
+                    || text.substring(i, i + 1).equals("!") || text.substring(i, i + 1).equals("?")) {
+            } else {
+                newText = newText + text.substring(i, i + 1);
+            }
+        }
+        return newText;
+    }
+}

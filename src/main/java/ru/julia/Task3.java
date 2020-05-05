@@ -5,6 +5,7 @@ import java.util.Map;
 
 /**
  * текст - посчитать количество вхождений каждого слова. метод, который удаляет знаки препинания
+ * из трех методов в задании 4
  */
 public class Task3 {
     public static void main(String[] args) {
@@ -50,8 +51,9 @@ public class Task3 {
         for (int i = 0; i < text.length(); i++) {
             if (text.substring(i, i + 1).equals(".") || text.substring(i, i + 1).equals(",")
                     || text.substring(i, i + 1).equals("!")) {
-            } else
+            } else {
                 newText = newText + text.substring(i, i + 1);
+            }
         }
         return newText;
     }

@@ -6,8 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * метод который убирает знаки пунктуации
  * метод который принимает строку и возвращает лист со словами в этой строке
  * метод который принимает лист строк и возвращает мапу с количеством вхождений этих строк
+ * сделать с одним циклом, завести переменную, в которую записывать начало слова
  */
 public class Task4 {
     public static void main(String[] args) {
@@ -22,7 +24,8 @@ public class Task4 {
         System.out.println(numberOfString(strings).get("прокрастинация"));
         System.out.println(numberOfString(strings).get("отдых"));
     }
-    public static Map numberOfString(List<String> strings) {
+
+    public static Map<String, Integer> numberOfString(List<String> strings) {
         Map<String, Integer> numberOfString = new HashMap<String, Integer>();
         for (int i = 0; i < strings.size(); ++i) {
             String key = strings.get(i);
@@ -34,7 +37,8 @@ public class Task4 {
         }
         return numberOfString;
     }
-    public static List listOfWords(String str) {
+
+    public static List<String> listOfWords(String str) {
         String newStr = deletePunctuationMarks(str);
         List<String> words = new ArrayList<>();
         String word = "";
@@ -63,8 +67,9 @@ public class Task4 {
         for (int i = 0; i < text.length(); i++) {
             if (text.substring(i, i + 1).equals(".") || text.substring(i, i + 1).equals(",")
                     || text.substring(i, i + 1).equals("!")) {
-            } else
+            } else {
                 newText = newText + text.substring(i, i + 1);
+            }
         }
         return newText;
     }
