@@ -18,11 +18,16 @@ public class Task6 {
     public static void main(String[] args) {
         String text = "Я медленно становлюсь на колени и снимаю кофточку. Я все правильно сделала, " +
                 "больше меня не уволят?";
+        System.out.println(numberOfWords(text).get("Я"));
+    }
+
+    public static Map<String, Integer> numberOfWords(String text) {
         String newText = deletePunctuationMarks(text);
         System.out.println(newText);
         List<String> words = listOfWords(newText);
         System.out.println(words);
-        System.out.println(numberOfString(words).get("Я"));
+        Map<String, Integer> numberOfWords = numberOfString(words);
+        return numberOfWords;
     }
 
     public static List<String> listOfWords(String newStr) {
