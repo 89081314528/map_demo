@@ -2,10 +2,8 @@ package ru.julia;
 
 import org.w3c.dom.ls.LSOutput;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.util.*;
 
 /**
  * текст - посчитать количество вхождений каждого слова
@@ -13,6 +11,9 @@ import java.util.Map;
  * метод который убирает знаки пунктуации
  * метод который принимает строку и возвращает лист со словами в этой строке
  * метод который принимает лист строк и возвращает мапу с количеством вхождений этих строк
+ * Arrays.asList - преобразует массив в лист
+ * split - делит по строку на подстроки, в зависимости от разделительного символа
+ * replaceAll - заменяет все символы в строке
  */
 public class Task6 {
     public static void main(String[] args) {
@@ -22,9 +23,9 @@ public class Task6 {
     }
 
     public static Map<String, Integer> numberOfWords(String text) {
-        String newText = deletePunctuationMarks(text);
+        String newText = deletePunctuationMarks2(text);
         System.out.println(newText);
-        List<String> words = listOfWords(newText);
+        List<String> words = listOfWords2(newText);
         System.out.println(words);
         Map<String, Integer> numberOfWords = numberOfString(words);
         return numberOfWords;
@@ -50,6 +51,10 @@ public class Task6 {
         return words;
     }
 
+    public static List<String> listOfWords2(String newStr) {
+        return Arrays.asList(newStr.split(" "));
+    }
+
     public static Map<String, Integer> numberOfString(List<String> strings) {
         Map<String, Integer> numberOfString = new HashMap<String, Integer>();
         for (int i = 0; i < strings.size(); ++i) {
@@ -73,5 +78,10 @@ public class Task6 {
             }
         }
         return newText;
+    }
+
+    public static String deletePunctuationMarks2(String text) {
+        return text.replaceAll("\\.", "").replaceAll(",","").
+                replaceAll("!", "").replaceAll("\\?", "");
     }
 }
