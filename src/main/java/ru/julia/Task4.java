@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
+/** текст - посчитать количество вхождений каждого слова
  * метод который убирает знаки пунктуации
  * метод который принимает строку и возвращает лист со словами в этой строке
  * метод который принимает лист строк и возвращает мапу с количеством вхождений этих строк
@@ -23,6 +23,7 @@ public class Task4 {
         strings.add("прокрастинация");
         System.out.println(numberOfString(strings).get("прокрастинация"));
         System.out.println(numberOfString(strings).get("отдых"));
+        System.out.println(numberOfString(listOfWords(str)).get("Я"));
     }
 
     public static Map<String, Integer> numberOfString(List<String> strings) {
