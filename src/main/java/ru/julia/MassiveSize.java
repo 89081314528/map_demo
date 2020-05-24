@@ -24,11 +24,10 @@ public class MassiveSize {
     public String size(Integer a) {
         String result = "";
         for (int i = 0; i < sizes.size() ; i++) {
-            int start = sizes.get(i).getStart();
-            int end = sizes.get(i).getEnd();
-            if (a >= start && a <= end) {
+            Size size = getSizes().get(i);
+            if (a >= size.getStart() && a <= size.getEnd()) {
                 result = sizes.get(i).getSize();
-            } else if (a > end && (i == sizes.size() - 1)) {
+            } else if (a > size.getEnd() && (i == sizes.size() - 1)) {
                 result = sizes.get(i).getSize();
             }
         }
