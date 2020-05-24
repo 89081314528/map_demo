@@ -14,7 +14,7 @@ public class MassiveSize {
         // = sizes - если есть аргумент, то это аргумент. если нет аргумента, то это поле
         sizes.add(new Size("malo",0,5));
         sizes.add(new Size("tolpa",6,20));
-        sizes.add(new Size("malo",21,100));
+        sizes.add(new Size("mnogo",21,100));
     }
 
     public List<Size> getSizes() {
@@ -24,7 +24,11 @@ public class MassiveSize {
     public String size(Integer a) {
         String result = "";
         for (int i = 0; i < sizes.size() ; i++) {
-            if (a >= sizes.get(i).getStart() && a <= sizes.get(i).getEnd()) {
+            int start = sizes.get(i).getStart();
+            int end = sizes.get(i).getEnd();
+            if (a >= start && a <= end) {
+                result = sizes.get(i).getSize();
+            } else if (a > end && (i == sizes.size() - 1)) {
                 result = sizes.get(i).getSize();
             }
         }
