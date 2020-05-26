@@ -1,6 +1,5 @@
 package ru.julia;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,10 +20,11 @@ public class Task9 {
     public static void dateTextDescription(String date) {
         List<String> list = listOfWords(date);
         System.out.println(list);
-        ListDays listDays = new ListDays();
-        ListMonth listMonth = new ListMonth();
+        Days listDays = new Days();
+        Months mapMonth = new Months();
         System.out.println(listDays.nameOfDay(Integer.parseInt(list.get(0))) + " " +
-                listMonth.nameOfMonth(Integer.parseInt(list.get(1))) + " " + list.get(2));
+                mapMonth.nameOfMonth(Integer.parseInt(list.get(1))) + " " + list.get(2));
     }
+
 }
 
