@@ -8,11 +8,11 @@ public class ListDays {
 
     public ListDays() {
         listDays = new ArrayList<Day>();
-        listDays.add(new Day(1,"первое"));
-        listDays.add(new Day(2,"второе"));
-        listDays.add(new Day(3,"третье"));
-        listDays.add(new Day(4,"четвертое"));
-        listDays.add(new Day(5,"пятое"));
+        listDays.add(new Day(01,"первое"));
+        listDays.add(new Day(02,"второе"));
+        listDays.add(new Day(03,"третье"));
+        listDays.add(new Day(04,"четвертое"));
+        listDays.add(new Day(05,"пятое"));
     }
 
     public List<Day> getListDays() {
