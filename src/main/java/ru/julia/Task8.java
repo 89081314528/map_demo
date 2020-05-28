@@ -5,17 +5,12 @@ import java.util.*;
 /**
  * есть текст, нужно заменить слова на конкретные - всех птиц заменить на берд, животных на энимал
  * выделить настройки в отдельный класс
+ * метод, который принимает лист и возвращает, отсортировано он по возрастанию, или нет
  */
 public class Task8 {
     public static void main(String[] args) {
         String text = "Птички- синички уснули в саду, коровки дают молоко, лошадки говорят игого";
-        String newText = deletePunctuationMarks(text);
-        System.out.println(newText);
-        List<String> list = listOfWords(newText);
-        System.out.println(list);
-        List<String> newList2 = listWithChanges(list);
-        System.out.println(newList2);
-
+        printChange(text);
     }
 
 //    public static List<String> listFromMap(Map<String, String> map) {
@@ -32,18 +27,13 @@ public class Task8 {
         return Arrays.asList(newStr.split(" "));
     }
 
-    public static List<String> listWithChanges(List<String> list) {
-        List<String> newList = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).equals("синички")) {
-                newList.add("bird");
-            } else if (list.get(i).equals("коровки") || list.get(i).equals("лошадки")) {
-                newList.add("animal");
-            } else {
-                newList.add(list.get(i));
-            }
-        }
-        return newList;
+    public static void printChange(String text) {
+        String newText = deletePunctuationMarks(text);
+        System.out.println(newText);
+        List<String> list = listOfWords(newText);
+        System.out.println(list);
+        ChangeAnimal changeAnimal = new ChangeAnimal(list);
+        System.out.println(changeAnimal.changeAnimal(list));
     }
 }
 
