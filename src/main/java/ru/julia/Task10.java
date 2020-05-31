@@ -26,7 +26,11 @@ public class Task10 {
         System.out.println(newText);
         List<String> list = listOfWords(newText);
         System.out.println(list);
-        ChangeAnimal changeAnimal = new ChangeAnimal();
+        Map<String, String> change = new HashMap<String, String>();
+        change.put("синички", "bird");
+        change.put("коровки", "animal");
+        change.put("лошадки", "animal");
+        ChangeAnimal changeAnimal = new ChangeAnimal(change);
         changeAnimal.change(list);
     }
 }
