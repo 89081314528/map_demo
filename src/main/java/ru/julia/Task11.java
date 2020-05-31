@@ -13,9 +13,15 @@ public class Task11 {
     public static void main(String[] args) {
         String text = "Птички- синички уснули в саду, коровки дают молоко, лошадки говорят игого";
         List<Animal> settings = new ArrayList<>();
-        settings.add(new Animal("","bird"));
-        settings.add(new Animal("","animal"));
-        settings.add(new Animal("","animal"));
+        settings.add(new Animal("синички","bird"));
+        settings.add(new Animal("лошадки","animal"));
+        settings.add(new Animal("коровки","animal"));
+        String newText = deletePunctuationMarks(text);
+        System.out.println(newText);
+        List<String> list = listOfWords(newText);
+        System.out.println(list);
+        ChangeAnimal2 changeAnimal2 = new ChangeAnimal2(settings);
+        changeAnimal2.change(list);
 
     }
 
@@ -28,11 +34,5 @@ public class Task11 {
         return Arrays.asList(newStr.split(" "));
     }
 
-    public static void printChange(String text) {
-        String newText = deletePunctuationMarks(text);
-        System.out.println(newText);
-        List<String> list = listOfWords(newText);
-        System.out.println(list);
 
-    }
 }
