@@ -13,11 +13,6 @@ public class Task8 {
         printChange(text);
     }
 
-//    public static List<String> listFromMap(Map<String, String> map) {
-//        List<String> list = new ArrayList<>(map.values()); // заполнить лист значениями из мапа
-//        return list;
-//    }
-
     public static String deletePunctuationMarks(String text) {
         return text.replaceAll("\\.", "").replaceAll(",", "").
                 replaceAll("!", "").replaceAll("\\?", "").replaceAll("\\-", "");
