@@ -14,31 +14,24 @@ import java.util.Map;
  */
 
 public class ChangeAnimal {
-    private final List<Animal> list;
+    private final List<String> list;
 
-    public ChangeAnimal(List<Animal> list) {
+    public ChangeAnimal(List<String> list) {
         this.list = list;
-        Map<String, String> mapAnimals = new HashMap<String, String>();
-        for (int i = 0; i < list.size(); ++i) {
-            mapAnimals.put(list.get(i).animal, list.get(i).change);
-        }
     }
 
-    public List<Animal> getList() {
-        return list;
-    }
-
-    public List<String> changeAnimal(List<String> list) {
+    public void change(List<String> list) {
+        Map<String, String> change = new HashMap<String, String>();
+        change.put("синички", "bird");
+        change.put("коровки", "animal");
+        change.put("лошадки", "animal");
         List<String> newList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).equals("синички")) {
-                newList.add("bird");
-            } else if (list.get(i).equals("коровки") || list.get(i).equals("лошадки")) {
-                newList.add("animal");
-            } else {
-                newList.add(list.get(i));
+            if (change.containsKey(list.get(i))) {
+                newList.add(change.get(list.get(i)));
             }
+            newList.add(list.get(i));
         }
-        return newList;
+        System.out.println(newList);
     }
 }
