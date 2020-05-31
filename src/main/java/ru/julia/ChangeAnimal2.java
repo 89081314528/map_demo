@@ -1,9 +1,6 @@
 package ru.julia;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 1) создать лист с настройками в мэйне
@@ -21,7 +18,21 @@ public class ChangeAnimal2 {
         }
         this.change = map;
     }
-    public void change(List<String> list) {
+
+    public static String deletePunctuationMarks(String text) {
+        return text.replaceAll("\\.", "").replaceAll(",", "").
+                replaceAll("!", "").replaceAll("\\?", "").replaceAll("\\-", "");
+    }
+
+    public static List<String> listOfWords(String newStr) {
+        return Arrays.asList(newStr.split(" "));
+    }
+
+    public void change(String text) {
+        String newText = deletePunctuationMarks(text);
+        System.out.println(newText);
+        List<String> list = listOfWords(newText);
+        System.out.println(list);
         List<String> newList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             if (change.containsKey(list.get(i))) {

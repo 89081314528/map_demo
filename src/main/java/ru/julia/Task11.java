@@ -1,5 +1,4 @@
-package
-        ru.julia;
+package ru.julia;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,23 +15,8 @@ public class Task11 {
         settings.add(new Animal("синички","bird"));
         settings.add(new Animal("лошадки","animal"));
         settings.add(new Animal("коровки","animal"));
-        String newText = deletePunctuationMarks(text);
-        System.out.println(newText);
-        List<String> list = listOfWords(newText);
-        System.out.println(list);
         ChangeAnimal2 changeAnimal2 = new ChangeAnimal2(settings);
-        changeAnimal2.change(list);
+        changeAnimal2.change(text);
 
     }
-
-    public static String deletePunctuationMarks(String text) {
-        return text.replaceAll("\\.", "").replaceAll(",", "").
-                replaceAll("!", "").replaceAll("\\?", "").replaceAll("\\-", "");
-    }
-
-    public static List<String> listOfWords(String newStr) {
-        return Arrays.asList(newStr.split(" "));
-    }
-
-
 }
