@@ -28,12 +28,22 @@ public class Task8 {
     }
 
     public static void printChange(String text) {
+        Map<String, String> change = new HashMap<String, String>();
+        change.put("синички", "bird");
+        change.put("коровки", "animal");
+        change.put("лошадки", "animal");
         String newText = deletePunctuationMarks(text);
         System.out.println(newText);
         List<String> list = listOfWords(newText);
         System.out.println(list);
-        ChangeAnimal changeAnimal = new ChangeAnimal(list);
-        System.out.println(changeAnimal.changeAnimal(list));
+        List<String> newList = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            if (change.containsKey(list.get(i))) {
+                newList.add(change.get(list.get(i)));
+            }
+            newList.add(list.get(i));
+        }
+        System.out.println(newList);
     }
 }
 
