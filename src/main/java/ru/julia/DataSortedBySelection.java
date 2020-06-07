@@ -14,22 +14,23 @@ public class DataSortedBySelection {
         list.add(10);
         System.out.println(list);
         System.out.println(dataSorted(list));
+        System.out.println(list);
     }
-
     public static List<Integer> dataSorted(List<Integer> list) {
+        List<Integer> copyList = list;
         List<Integer> newList = new ArrayList<>();
-        for (int a = 0; a < list.size(); ) {
+        for (int a = 0; a < copyList.size(); ) {
             int minIndex = 0;
-            Integer min = list.get(0);
-            if (list.size() > 0) {
-                for (int i = 0; i < list.size(); i++) {
-                    if (list.get(i) <= min) {
-                        min = list.get(i);
+            Integer min = copyList.get(0);
+            if (copyList.size() > 0) {
+                for (int i = 0; i < copyList.size(); i++) {
+                    if (copyList.get(i) <= min) {
+                        min = copyList.get(i);
                         minIndex = i;
                     }
                 }
                 newList.add(min);
-                list.remove(minIndex);
+                copyList.remove(minIndex);
             } else {
                 return newList;
             }
