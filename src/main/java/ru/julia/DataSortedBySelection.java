@@ -17,7 +17,7 @@ public class DataSortedBySelection {
         System.out.println(list);
     }
     public static List<Integer> dataSorted(List<Integer> list) {
-        List<Integer> copyList = list;
+        List<Integer> copyList = new ArrayList<>(list);
         List<Integer> newList = new ArrayList<>();
         for (int a = 0; a < copyList.size(); ) {
             int minIndex = 0;
