@@ -1,4 +1,7 @@
 package ru.julia;
+/**
+ * сделать копию листа
+ */
 
 import java.util.ArrayList;
 import java.util.List;
