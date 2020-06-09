@@ -6,7 +6,7 @@ package ru.julia;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataSortedList3 {
+public class DataSortedBySelection3 {
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>();
         list.add(6);
