@@ -20,36 +20,28 @@ public class DataSortedBySelection3 {
     }
 
     public static List<Integer> dataSorted(List<Integer> list, boolean sortAscending) {
-        if (sortAscending == true) {
-            for (int i = 0; i < list.size(); i++) {
-                Integer min = list.get(i);
-                int minIndex = i;
+        for (int i = 0; i < list.size(); i++) {
+            Integer minOrMax = list.get(i);
+            int index = i;
+            if (sortAscending == true) {
                 for (int j = i; j < list.size(); j++) {
-                    if (list.get(j) <= min) {
-                        min = list.get(j);
-                        minIndex = j;
+                    if (list.get(j) <= minOrMax) {
+                        minOrMax = list.get(j);
+                        index = j;
                     }
                 }
-                list.set(minIndex, list.get(i));
-                list.set(i, min);
-
-            }
-            return list;
-        } else {
-            for (int i = 0; i < list.size(); i++) {
-                Integer max = list.get(i);
-                int maxIndex = i;
+            } else {
                 for (int j = i; j < list.size(); j++) {
-                    if (list.get(j) >= max) {
-                        max = list.get(j);
-                        maxIndex = j;
+                    if (list.get(j) >= minOrMax) {
+                        minOrMax = list.get(j);
+                        index = j;
                     }
                 }
-                list.set(maxIndex, list.get(i));
-                list.set(i, max);
-
             }
-            return list;
+            list.set(index, list.get(i));
+            list.set(i, minOrMax);
         }
+        return list;
     }
 }
+
