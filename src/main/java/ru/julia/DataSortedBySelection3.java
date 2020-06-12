@@ -16,22 +16,20 @@ public class DataSortedBySelection3 {
         list.add(19);
         list.add(10);
         System.out.println(list);
-        System.out.println(dataSorted(list, false));
+        System.out.println(dataSorted(list, true));
     }
 
     public static List<Integer> dataSorted(List<Integer> list, boolean sortAscending) {
         for (int i = 0; i < list.size(); i++) {
             Integer minOrMax = list.get(i);
             int index = i;
-            if (sortAscending == true) {
                 for (int j = i; j < list.size(); j++) {
+                    if (sortAscending == true) {
                     if (list.get(j) <= minOrMax) {
                         minOrMax = list.get(j);
                         index = j;
                     }
-                }
-            } else {
-                for (int j = i; j < list.size(); j++) {
+                } else {
                     if (list.get(j) >= minOrMax) {
                         minOrMax = list.get(j);
                         index = j;
