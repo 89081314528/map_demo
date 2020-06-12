@@ -16,23 +16,40 @@ public class DataSortedBySelection3 {
         list.add(19);
         list.add(10);
         System.out.println(list);
-        System.out.println(dataSorted(list));
+        System.out.println(dataSorted(list, false));
     }
 
-    public static List<Integer> dataSorted(List<Integer> list) {
-        for (int i = 0; i < list.size(); i++) {
-            Integer min = list.get(i);
-            int minIndex = i;
-            for (int j = i; j < list.size(); j++) {
-                if(list.get(j) <= min) {
-                    min = list.get(j);
-                    minIndex = j;
+    public static List<Integer> dataSorted(List<Integer> list, boolean sortAscending) {
+        if (sortAscending == true) {
+            for (int i = 0; i < list.size(); i++) {
+                Integer min = list.get(i);
+                int minIndex = i;
+                for (int j = i; j < list.size(); j++) {
+                    if (list.get(j) <= min) {
+                        min = list.get(j);
+                        minIndex = j;
+                    }
                 }
-            }
-            list.set(minIndex,list.get(i));
-            list.set(i,min);
+                list.set(minIndex, list.get(i));
+                list.set(i, min);
 
+            }
+            return list;
+        } else {
+            for (int i = 0; i < list.size(); i++) {
+                Integer max = list.get(i);
+                int maxIndex = i;
+                for (int j = i; j < list.size(); j++) {
+                    if (list.get(j) >= max) {
+                        max = list.get(j);
+                        maxIndex = j;
+                    }
+                }
+                list.set(maxIndex, list.get(i));
+                list.set(i, max);
+
+            }
+            return list;
         }
-        return list;
     }
 }
