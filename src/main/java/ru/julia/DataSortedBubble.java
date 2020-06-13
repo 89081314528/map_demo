@@ -9,58 +9,33 @@ public class DataSortedBubble {
         list.add(6);
         list.add(-3);
         list.add(6);
-        list.add(5);
-        list.add(19);
-        list.add(10);
+        list.add(3);
+        list.add(2);
+        list.add(1);
         System.out.println(list);
-        System.out.println(dataSorted(list, true));
+        System.out.println(dataSorted(list));
     }
-
-    public static List<Integer> dataSorted(List<Integer> list, boolean sortAscending) {
-        if (sortAscending == true) {
-            int upperBorder = list.size();
-            int max = list.get(0);
-            for (int i = 0; i < upperBorder; i++) {
-                if (i < upperBorder - 1) {
-                    if (list.get(i) <= list.get(i + 1)) {
-                    } else {
-                        max = list.get(i);
-                        list.set(i, list.get(i + 1));
-                        list.set(i + 1, max);
-                    }
+    public static List<Integer> dataSorted(List<Integer> list) {
+        int max;
+        int count = 0;
+        for (int a = 0; a < list.size() - 1; a++) {
+            for (int i = 0; i < list.size() - 1; i++) {
+                if (list.get(i) <= list.get(i + 1)) {
+                    count = count + 1;
                 } else {
-                    if (list.get(i) <= list.get(upperBorder - 1)) {
-                    } else {
-                        max = list.get(i);
-                        list.set(i, list.get(upperBorder - 1));
-                        list.set(upperBorder - 1, max);
-                    }
-                    upperBorder = upperBorder - 1;
+                    max = list.get(i);
+                    list.set(i, list.get(i + 1));
+                    list.set(i + 1, max);
                 }
             }
-            return list;
-        } else {
-            int upperBorder = list.size();
-            int min = list.get(0);
-            for (int i = 0; i < upperBorder; i++) {
-                if (i < upperBorder - 1) {
-                    if (list.get(i) >= list.get(i + 1)) {
-                    } else {
-                        min = list.get(i);
-                        list.set(i, list.get(i + 1));
-                        list.set(i + 1, min);
-                    }
-                } else {
-                    if (list.get(i) >= list.get(upperBorder - 1)) {
-                    } else {
-                        min = list.get(i);
-                        list.set(i, list.get(upperBorder - 1));
-                        list.set(upperBorder - 1, min);
-                    }
-                    upperBorder = upperBorder - 1;
-                }
+            System.out.println(count);
+            System.out.println(list);
+            if (count == 5) {
+                break;
+            } else {
+                count = 0;
             }
-            return list;
         }
+        return list;
     }
 }
