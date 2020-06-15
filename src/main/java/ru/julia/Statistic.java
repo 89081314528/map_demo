@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface Statistic {
     void add(PersonForStatistics person);
-    Integer get(List<PersonForStatistics> list);
+    Integer get();
 }

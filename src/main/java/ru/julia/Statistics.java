@@ -29,17 +29,16 @@ public class Statistics {
         list.add(petya);
         list.add(anya);
         list.add(lena);
-        Statistic averageSalary = new AverageSalary();
+        Statistic averageSalary = new AverageSalary(list);
         System.out.println(statistic(list, averageSalary));
+
     }
 
     public static Integer statistic(List<PersonForStatistics> list, Statistic statistic) {
-//        for (int i = 0; i < person.size(); i++) {
-//            PersonForStatistics personForStatistics = person.get(i);
-//            statistic.add(personForStatistics);
-//        }
-//        System.out.println("statistic.get() = " + statistic.get());
-//        return 5;
-        return statistic.get(list);
+        for (int i = 0; i < list.size(); i++) {
+            PersonForStatistics personForStatistics = list.get(i);
+            statistic.add(personForStatistics);
+        }
+        return statistic.get();
     }
 }
