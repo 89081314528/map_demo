@@ -29,8 +29,14 @@ public class Statistics {
         list.add(petya);
         list.add(anya);
         list.add(lena);
-        Statistic averageSalary = new AverageSalary(list);
+        Statistic averageSalary = new AverageSalary();
+        Statistic averageFemaleSalary = new AverageFemaleSalary();
+        Statistic averageMaleSalary = new AverageMaleSalary();
+        Statistic sumSalary = new SumSalary();
         System.out.println(statistic(list, averageSalary));
+        System.out.println(statistic(list, averageFemaleSalary));
+        System.out.println(statistic(list, averageMaleSalary));
+        System.out.println(statistic(list, sumSalary));
 
     }
 

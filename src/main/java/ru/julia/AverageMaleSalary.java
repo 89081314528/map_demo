@@ -3,10 +3,10 @@ package ru.julia;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AverageSalary implements Statistic{
+public class AverageMaleSalary implements Statistic{
     private final List<PersonForStatistics> list;
 
-    public AverageSalary() {
+    public AverageMaleSalary() {
         this.list = new ArrayList<>();
     }
 
@@ -16,13 +16,16 @@ public class AverageSalary implements Statistic{
     }
 
     @Override
-    public Integer get() { // возвращает среднюю зп
-        Integer sum = 0;
+    public Integer get() {Integer sum = 0;
         Integer average = 0;
+        int count = 0;
         for (int i = 0; i < list.size(); i++) {
-            sum = sum + list.get(i).getSalary();
+            if(list.get(i).getGender().equals("m")) {
+                sum = sum + list.get(i).getSalary();
+                count = count + 1;
+            }
         }
-        average = sum / list.size();
+        average = sum / count;
         return average;
     }
 }
