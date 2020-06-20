@@ -10,17 +10,20 @@ public class DataSortedBubble {
         list.add(-3);
         list.add(6);
         list.add(7);
-        list.add(10);
+        list.add(1);
         list.add(19);
         System.out.println(list);
-        System.out.println(dataSorted(list));
+        AscendingOrderForBubble ascendingOrder = new AscendingOrderForBubble();
+        DescendingOrderForBubble descendingOrder = new DescendingOrderForBubble();
+        System.out.println(dataSorted(list, ascendingOrder));
+//        System.out.println(dataSorted(list, descendingOrder));
     }
-    public static List<Integer> dataSorted(List<Integer> list) {
+    public static List<Integer> dataSorted(List<Integer> list, Order order) {
         int max;
         for (int a = 0; a < list.size() - 1; a++) {
             int count = 0;
             for (int i = 0; i < list.size() - 1; i++) {
-                if (list.get(i) > list.get(i + 1)) {
+                if (order.isRight( list.get(i), list.get(i + 1))) {
                     count = count + 1;
                     max = list.get(i);
                     list.set(i, list.get(i + 1));
