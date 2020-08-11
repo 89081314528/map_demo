@@ -7,7 +7,7 @@ public class AverageFemaleSalary implements Statistic{
     private final List<PersonForStatistics> list;
 
     public AverageFemaleSalary() {
-        this.list = new ArrayList<>();
+        this.list = new ArrayList<>();// инициализация
     }
 
     @Override

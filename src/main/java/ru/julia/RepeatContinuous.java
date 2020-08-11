@@ -23,7 +23,7 @@ public class RepeatContinuous {
         List<Number> numbers = new ArrayList<>();
         int count = 1;
         for (int i = 0; i < list.size() - 1; i++) {
-            if (list.get(i) == list.get(i + 1)) {
+            if (list.get(i).equals(list.get(i + 1))) {
                 count = count + 1;
                 numbers.add(new Number(list.get(i), count));
             } else {

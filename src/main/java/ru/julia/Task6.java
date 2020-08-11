@@ -16,72 +16,102 @@ import java.util.*;
  * replaceAll - заменяет все символы в строке
  */
 public class Task6 {
+    //    public static void main(String[] args) {
+//        String text = "Я медленно становлюсь на колени и снимаю кофточку. Я все правильно сделала, " +
+//                "больше меня не уволят?";
+//        System.out.println(numberOfWords(text).get("Я"));
+//    }
+//
+//    public static Map<String, Integer> numberOfWords(String text) {
+//        String newText = deletePunctuationMarks2(text);
+//        System.out.println(newText);
+//        List<String> words = listOfWords2(newText);
+//        System.out.println(words);
+//        Map<String, Integer> numberOfWords = numberOfString(words);
+//        return numberOfWords;
+//    }
+//
+//    public static List<String> listOfWords(String newStr) {
+//        List<String> words = new ArrayList<>();
+//        String word = "";
+//        int startOfWord = 0;
+//        for (int i = 0; i < newStr.length(); i++) {
+//            if (newStr.substring(i, i + 1).equals(" ")) {
+//                word = newStr.substring(startOfWord, i);
+//                System.out.println(word);
+//                words.add(word);
+//                startOfWord = i + 1;
+//            } else if (i == (newStr.length() - 1)) {
+//                word = newStr.substring(startOfWord, i + 1);
+//                System.out.println(word);
+//                words.add(word);
+//                startOfWord = i + 1;
+//            }
+//        }
+//        return words;
+//    }
+//
+//    public static List<String> listOfWords2(String newStr) {
+//        return Arrays.asList(newStr.split(" "));
+//    }
+//
+//    public static Map<String, Integer> numberOfString(List<String> strings) {
+//        Map<String, Integer> numberOfString = new HashMap<String, Integer>();
+//        for (int i = 0; i < strings.size(); ++i) {
+//            String key = strings.get(i);
+//            if (numberOfString.containsKey(key)) {
+//                numberOfString.put(key, (numberOfString.get(key) + 1));
+//            } else {
+//                numberOfString.put(key, 1);
+//            }
+//        }
+//        return numberOfString;
+//    }
+//
+//    public static String deletePunctuationMarks(String text) {
+//        String newText = "";
+//        for (int i = 0; i < text.length(); i++) {
+//            if (text.substring(i, i + 1).equals(".") || text.substring(i, i + 1).equals(",")
+//                    || text.substring(i, i + 1).equals("!") || text.substring(i, i + 1).equals("?")) {
+//            } else {
+//                newText = newText + text.substring(i, i + 1);
+//            }
+//        }
+//        return newText;
+//    }
+//
+//    public static String deletePunctuationMarks2(String text) {
+//        return text.replaceAll("\\.", "").replaceAll(",","").
+//                replaceAll("!", "").replaceAll("\\?", "");
+//    }
     public static void main(String[] args) {
-        String text = "Я медленно становлюсь на колени и снимаю кофточку. Я все правильно сделала, " +
-                "больше меня не уволят?";
-        System.out.println(numberOfWords(text).get("Я"));
-    }
-
-    public static Map<String, Integer> numberOfWords(String text) {
-        String newText = deletePunctuationMarks2(text);
-        System.out.println(newText);
-        List<String> words = listOfWords2(newText);
-        System.out.println(words);
-        Map<String, Integer> numberOfWords = numberOfString(words);
-        return numberOfWords;
-    }
-
-    public static List<String> listOfWords(String newStr) {
-        List<String> words = new ArrayList<>();
-        String word = "";
-        int startOfWord = 0;
-        for (int i = 0; i < newStr.length(); i++) {
-            if (newStr.substring(i, i + 1).equals(" ")) {
-                word = newStr.substring(startOfWord, i);
-                System.out.println(word);
-                words.add(word);
-                startOfWord = i + 1;
-            } else if (i == (newStr.length() - 1)) {
-                word = newStr.substring(startOfWord, i + 1);
-                System.out.println(word);
-                words.add(word);
-                startOfWord = i + 1;
-            }
-        }
-        return words;
-    }
-
-    public static List<String> listOfWords2(String newStr) {
-        return Arrays.asList(newStr.split(" "));
-    }
-
-    public static Map<String, Integer> numberOfString(List<String> strings) {
-        Map<String, Integer> numberOfString = new HashMap<String, Integer>();
-        for (int i = 0; i < strings.size(); ++i) {
-            String key = strings.get(i);
-            if (numberOfString.containsKey(key)) {
-                numberOfString.put(key, (numberOfString.get(key) + 1));
-            } else {
-                numberOfString.put(key, 1);
-            }
-        }
-        return numberOfString;
+        String text = "I ,,like!!!! like???? to walk i.n the woods";
+        System.out.println(map(text).get("the"));
     }
 
     public static String deletePunctuationMarks(String text) {
-        String newText = "";
-        for (int i = 0; i < text.length(); i++) {
-            if (text.substring(i, i + 1).equals(".") || text.substring(i, i + 1).equals(",")
-                    || text.substring(i, i + 1).equals("!") || text.substring(i, i + 1).equals("?")) {
-            } else {
-                newText = newText + text.substring(i, i + 1);
-            }
-        }
+        String newText = text.replaceAll("\\.", "").replaceAll(",", "").
+                replaceAll("\\?", "").replaceAll("!", "");
         return newText;
     }
 
-    public static String deletePunctuationMarks2(String text) {
-        return text.replaceAll("\\.", "").replaceAll(",","").
-                replaceAll("!", "").replaceAll("\\?", "");
+    public static List<String> listOfString(String text) {
+        String newText = deletePunctuationMarks(text);
+        List<String> stringList = Arrays.asList(newText.split(" "));
+        return stringList;
+    }
+
+    public static Map<String, Integer> map(String text) {
+        List<String> stringList = listOfString(text);
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        for (int i = 0; i < stringList.size(); i++) {
+            String key = stringList.get(i);
+            if (map.containsKey(key)) {
+                map.put(key, map.get(key) + 1);
+            } else {
+                map.put(key, 1);
+            }
+        }
+        return map;
     }
 }
