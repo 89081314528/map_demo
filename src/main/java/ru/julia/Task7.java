@@ -8,7 +8,7 @@ public class Task7 {
     public static void main(String[] args) {
         MassiveSize a = new MassiveSize();
         System.out.println(a.size(1000));
-        System.out.println(a.getSizes().get(2).getSize());
+        System.out.println(a.getSizes().get(0).getSize());
 
 
     }
