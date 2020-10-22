@@ -3,9 +3,13 @@ package ru.julia;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Найти в массиве чисел ближайшее по модулю к десяти. Если одинаковые слева и справа,
+ * выбрать то, которое слева. Десять не учитываем.
+ */
 public class NearTen {
     public static void main(String[] args) {
-        Integer[] massive = {-100, 2, 8, 10, 15, 20};
+        Integer[] massive = {-100, 2, 5, 10, 15, 20};
         List<Integer> difference = new ArrayList<>();
         for (int i = 0; i < massive.length; i++) {
             difference.add(10 - massive[i]);
@@ -27,12 +31,6 @@ public class NearTen {
         System.out.println("Ближайшее к десяти число из массива чисел больше десяти: " + (10 - right));
     Integer near = 0;
 
-//    if(left == (right * (-1))) {
-//        near = 10 - left;
-//    }
-    if (left < right * (-1)) {
-        near = 10 - left;
-    }
         if (left > right * (-1)) {
         near = 10 - right;
     } else {
