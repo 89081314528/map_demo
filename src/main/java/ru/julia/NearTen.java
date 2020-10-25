@@ -11,13 +11,10 @@ public class NearTen {
     public static void main(String[] args) {
         Integer[] massive = {-100, 2, 5, 10, 15, 20};
         List<Integer> difference = new ArrayList<>();
-        for (int i = 0; i < massive.length; i++) {
-            difference.add(10 - massive[i]);
-        }
-        System.out.println(difference);
         List<Integer> nearLeft = new ArrayList<>();
         List<Integer> nearRight = new ArrayList<>();
-        for (int i = 0; i < difference.size(); i++) {
+        for (int i = 0; i < massive.length; i++) {
+            difference.add(10 - massive[i]);
             if (difference.get(i) > 0) {
                 nearLeft.add(difference.get(i));
             }
@@ -25,15 +22,16 @@ public class NearTen {
                 nearRight.add(difference.get(i));
             }
         }
+        System.out.println(difference);
         Integer left = minInList(nearLeft);
         Integer right = maxInList(nearRight);
         System.out.println("Ближайшее к десяти число из массива чисел меньше десяти: " + (10 - left));
         System.out.println("Ближайшее к десяти число из массива чисел больше десяти: " + (10 - right));
-    Integer near = 0;
+        Integer near = 0;
 
         if (left > right * (-1)) {
-        near = 10 - right;
-    } else {
+            near = 10 - right;
+        } else {
             near = 10 - left;
         }
         System.out.println("Ближайшее к десяти число: " + near);
